@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+#youkuplayer {
+	margin: 20px auto 0 auto;
+	width: 500px;
+	height: 220px;
+	position: relative;
+	height: 220px;
+}
+
+#nav {
+	position: absolute;
+	right: 50px;
+	top: 30px;
+	width: 400px;
+	line-height: 30px;
+	text-align: center;
+	font-weight: bold;
+	border: 1pxsolid #Firefoxf;
+}
+
+#nav {
+	color: white;
+}
+
+#nava:hover {
+	color: #Firefox0;
+}
+</style>
+
+</head>
+<body>
+
+	<div id="youkuplayer" style="width: 480px; height: 400px"></div>
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<script type="text/javascript" src="http://player.youku.com/jsapi">
+		player = new YKU.Player('youkuplayer', {
+			styleid : '6',
+			client_id : '5d3f9ff11ca3b74f',
+			vid : 'XMzAyNTQ2ODEy',
+			autoplay : false,
+			events : {
+				onPlayEnd : function() { /*your code*/
+					alert("playEnd");
+				},
+				onPlayStart : function() { /*your code*/
+					alert("playStart");
+				},
+				onPlayerReady : function() { /*your code*/
+					alert("playReady");
+				}
+			}
+		});
+		function currentTime() {
+			return player.currentTime();
+		}
+		function seekTo(s) {
+			player.seekTo(s);
+		}
+		function pauseVideo() {
+			player.pauseVideo();
+		}
+		function playVideo() {
+			player.playVideo();
+		}
+	</script>
+
+	<script type="text/javascript">
+		$(function() {
+
+			$("#youku-player").append(
+					'<param name="wmode" value="transparent">');
+
+			$("#youkuplayer").append(
+					'<div id="nav"> <<< </div>');
+			  
+           				       
+			setInterval(function(){
+				$("#nav").append("a");
+			},3000);   	
+		       
+		});
+	</script>
+
+</body>
+</html>
